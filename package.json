@@ -4,7 +4,9 @@
   "description": "Generate Last.fm listening report for CLI.",
   "main": "lib/index.js",
   "scripts": {
-    "build": "$(npm bin)/webpack --config webpack.config.js"
+    "lint": "npx tslint src/**/*.ts test/**/*.ts",
+    "lint:fix": "npx tslint --fix src/**/*.ts test/**/*.ts",
+    "build": "npx webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
