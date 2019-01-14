@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/sakai-akinobu/last-fm-listening-report-cli#readme",
   "devDependencies": {
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.2.2",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1"
   }
