@@ -1,0 +1,24 @@
+{
+  "name": "last-fm-listening-report-cli",
+  "version": "1.0.0",
+  "description": "Generate Last.fm listening report for CLI.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sakai-akinobu/last-fm-listening-report-cli.git"
+  },
+  "keywords": [
+    "lastfm",
+    "last.fm",
+    "cli"
+  ],
+  "author": "Akinobu SAKAI <sakai.akinobu@gmail.com> (https://github.com/sakai-akinobu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sakai-akinobu/last-fm-listening-report-cli/issues"
+  },
+  "homepage": "https://github.com/sakai-akinobu/last-fm-listening-report-cli#readme"
+}
