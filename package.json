@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "npx tslint src/**/*.ts test/**/*.ts",
     "lint:fix": "npx tslint --fix src/**/*.ts test/**/*.ts",
-    "test": "npx mocha --require ts-node/register --recursive test/*-test.ts test/**/*-test.ts",
+    "test": "npx mocha --require ts-node/register  --require espower-typescript/guess --recursive test/*-test.ts test/**/*-test.ts",
     "build": "npx webpack --config webpack.config.js"
   },
   "repository": {
