@@ -25,7 +25,11 @@
   },
   "homepage": "https://github.com/sakai-akinobu/last-fm-listening-report-cli#readme",
   "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
+    "espower-typescript": "^9.0.1",
     "mocha": "^5.2.0",
+    "power-assert": "^1.6.1",
     "ts-loader": "^5.3.3",
     "ts-node": "^7.0.1",
     "tslint": "^5.12.1",
