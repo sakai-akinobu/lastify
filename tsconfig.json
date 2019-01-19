@@ -1,16 +1,16 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "target": "es5",
-      "lib": [
-        "es2018",
-      ],
-      "strict": true,
-      "outDir": "lib",
-    },
-    "include": [
-      "src/**/*",
-      "test/**/*",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "lib": [
+      "es2018",
     ],
-  }
+    "strict": true,
+    "outDir": "lib",
+  },
+  "include": [
+    "src/**/*",
+    "test/**/*",
+  ],
+}
