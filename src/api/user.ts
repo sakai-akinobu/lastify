@@ -9,8 +9,8 @@ import {
 
 const ROOT_URL = 'http://ws.audioscrobbler.com/2.0';
 
-function getRequest<T>(apiKey: string, user: string, apiMethod: string): Promise<T> {
-  const url = `${ROOT_URL}/?method=user.${apiMethod}&user=${user}&api_key=${apiKey}&format=json`;
+function getRequest<T>(apiKey: string, user: string, apiMethod: string, limit: number): Promise<T> {
+  const url = `${ROOT_URL}/?method=user.${apiMethod}&user=${user}&api_key=${apiKey}&limit=${limit}&format=json`;
   return new Promise((resolve, reject) => {
     let body = '';
     http.get(url, res => {
@@ -31,18 +31,18 @@ function getRequest<T>(apiKey: string, user: string, apiMethod: string): Promise
   });
 }
 
-export function getRecentTracks(apiKey: string, user: string): Promise<RecentTracks> {
-  return getRequest<RecentTracks>(apiKey, user, 'getrecenttracks');
+export function getRecentTracks(apiKey: string, user: string, limit: number = 5): Promise<RecentTracks> {
+  return getRequest<RecentTracks>(apiKey, user, 'getrecenttracks', limit);
 }
 
-export function getTopAlbums(apiKey: string, user: string): Promise<TopAlbums> {
-  return getRequest<TopAlbums>(apiKey, user, 'gettopalbums');
+export function getTopAlbums(apiKey: string, user: string, limit: number = 5): Promise<TopAlbums> {
+  return getRequest<TopAlbums>(apiKey, user, 'gettopalbums', limit);
 }
 
-export function getTopArtists(apiKey: string, user: string): Promise<TopArtists> {
-  return getRequest<TopArtists>(apiKey, user, 'gettopartists');
+export function getTopArtists(apiKey: string, user: string, limit: number = 5): Promise<TopArtists> {
+  return getRequest<TopArtists>(apiKey, user, 'gettopartists', limit);
 }
 
-export function getTopTracks(apiKey: string, user: string): Promise<TopTracks> {
-  return getRequest<TopTracks>(apiKey, user, 'gettoptracks');
+export function getTopTracks(apiKey: string, user: string, limit: number = 5): Promise<TopTracks> {
+  return getRequest<TopTracks>(apiKey, user, 'gettoptracks', limit);
 }
