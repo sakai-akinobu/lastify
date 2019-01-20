@@ -35,3 +35,7 @@ export function getTopAlbums(apiKey: string, user: string): Promise<object> {
 export function getTopArtists(apiKey: string, user: string): Promise<object> {
   return getRequest(apiKey, user, 'gettopartists');
 }
+
+export function getTopTracks(apiKey: string, user: string): Promise<object> {
+  return getRequest(apiKey, user, 'gettoptracks');
+}
