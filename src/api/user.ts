@@ -4,6 +4,7 @@ import {
   RecentTracks,
   TopAlbums,
   TopArtist,
+  TopTracks,
 } from './types';
 
 const ROOT_URL = 'http://ws.audioscrobbler.com/2.0';
@@ -42,6 +43,6 @@ export function getTopArtists(apiKey: string, user: string): Promise<TopArtist> 
   return getRequest<TopArtist>(apiKey, user, 'gettopartists');
 }
 
-export function getTopTracks(apiKey: string, user: string): Promise<object> {
-  return getRequest(apiKey, user, 'gettoptracks');
+export function getTopTracks(apiKey: string, user: string): Promise<TopTracks> {
+  return getRequest<TopTracks>(apiKey, user, 'gettoptracks');
 }

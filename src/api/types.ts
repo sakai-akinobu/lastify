@@ -41,3 +41,17 @@ export interface TopArtist {
     ];
   };
 }
+
+export interface TopTracks {
+  toptracks: {
+    track: [
+      {
+        name: string;
+        artist?: {
+          name: string;
+        };
+        playcount: number;
+      }
+    ];
+  };
+}

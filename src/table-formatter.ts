@@ -4,6 +4,7 @@ import {
   RecentTracks,
   TopAlbums,
   TopArtist,
+  TopTracks,
 } from './api/types';
 
 export function recentTracks(json: RecentTracks): string {
@@ -46,4 +47,18 @@ export function topArtist(json: TopArtist): string {
     ]);
   });
   return topArtistTable.toString() + '\n';
+}
+
+export function topTracks(json: TopTracks): string {
+  const topTracksTable = new Table({
+    head: ['Artist', 'Track', 'Play count'],
+  });
+  json.toptracks.track.forEach(track => {
+    topTracksTable.push([
+      track.artist ? track.artist.name : '',
+      track.name,
+      track.playcount,
+    ]);
+  });
+  return topTracksTable.toString() + '\n';
 }
