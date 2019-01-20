@@ -16,3 +16,17 @@ export interface RecentTracks {
     ];
   };
 }
+
+export interface TopAlbums {
+  topalbums: {
+    album: [
+      {
+        name: string;
+        artist?: {
+          name: string;
+        };
+        playcount: number;
+      }
+    ];
+  };
+}
