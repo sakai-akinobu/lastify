@@ -1,13 +1,12 @@
 import * as http from 'http';
-import * as url from 'url';
 
 const ROOT_URL = 'http://ws.audioscrobbler.com/2.0';
 
-export function getRecentTracks(apiKey: string, user: string) {
+function getRequest(apiKey: string, user: string, apiMethod: string) {
+  const url = `${ROOT_URL}/?method=user.${apiMethod}&user=${user}&api_key=${apiKey}&format=json`;
   return new Promise((resolve, reject) => {
-    const query = `${ROOT_URL}/?method=user.getrecenttracks&user=${user}&api_key=${apiKey}&format=json`;
     let body = '';
-    http.get(query, res => {
+    http.get(url, res => {
       res.on('data', data => {
         body += data;
       });
@@ -23,4 +22,12 @@ export function getRecentTracks(apiKey: string, user: string) {
       });
     });
   });
+}
+
+export function getRecentTracks(apiKey: string, user: string): Promise<object> {
+  return getRequest(apiKey, user, 'getrecenttracks');
+}
+
+export function getTopAlbums(apiKey: string, user: string): Promise<object> {
+  return getRequest(apiKey, user, 'gettopalbums');
 }

@@ -28,4 +28,7 @@ const {apiKey, user} = commander
   .option('-u, --user [user]', 'User name on Last.fm.')
   .parse(process.argv);
 
-apiUser.getRecentTracks(apiKey, user);
+Promise.all([
+  apiUser.getRecentTracks(apiKey, user),
+  apiUser.getTopAlbums(apiKey, user),
+]);
