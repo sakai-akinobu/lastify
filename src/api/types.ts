@@ -31,7 +31,7 @@ export interface TopAlbums {
   };
 }
 
-export interface TopArtist {
+export interface TopArtists {
   topartists: {
     artist: [
       {

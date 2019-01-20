@@ -3,7 +3,7 @@ import * as http from 'http';
 import {
   RecentTracks,
   TopAlbums,
-  TopArtist,
+  TopArtists,
   TopTracks,
 } from './types';
 
@@ -39,8 +39,8 @@ export function getTopAlbums(apiKey: string, user: string): Promise<TopAlbums> {
   return getRequest<TopAlbums>(apiKey, user, 'gettopalbums');
 }
 
-export function getTopArtists(apiKey: string, user: string): Promise<TopArtist> {
-  return getRequest<TopArtist>(apiKey, user, 'gettopartists');
+export function getTopArtists(apiKey: string, user: string): Promise<TopArtists> {
+  return getRequest<TopArtists>(apiKey, user, 'gettopartists');
 }
 
 export function getTopTracks(apiKey: string, user: string): Promise<TopTracks> {
