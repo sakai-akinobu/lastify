@@ -31,4 +31,5 @@ const {apiKey, user} = commander
 Promise.all([
   apiUser.getRecentTracks(apiKey, user),
   apiUser.getTopAlbums(apiKey, user),
+  apiUser.getTopArtists(apiKey, user),
 ]);
