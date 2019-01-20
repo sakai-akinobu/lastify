@@ -30,3 +30,14 @@ export interface TopAlbums {
     ];
   };
 }
+
+export interface TopArtist {
+  topartists: {
+    artist: [
+      {
+        name: string;
+        playcount: number;
+      }
+    ];
+  };
+}

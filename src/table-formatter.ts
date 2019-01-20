@@ -3,6 +3,7 @@ import Table = require('cli-table');
 import {
   RecentTracks,
   TopAlbums,
+  TopArtist,
 } from './api/types';
 
 export function recentTracks(json: RecentTracks): string {
@@ -21,15 +22,28 @@ export function recentTracks(json: RecentTracks): string {
 }
 
 export function topAlbums(json: TopAlbums): string {
-  const topAlbumdTable = new Table({
+  const topAlbumTable = new Table({
     head: ['Album', 'Artist', 'Play count'],
   });
   json.topalbums.album.forEach(album => {
-    topAlbumdTable.push([
+    topAlbumTable.push([
       album.name,
       album.artist ? album.artist.name : '',
       album.playcount,
     ]);
   });
-  return topAlbumdTable.toString() + '\n';
+  return topAlbumTable.toString() + '\n';
+}
+
+export function topArtist(json: TopArtist): string {
+  const topArtistTable = new Table({
+    head: ['Artist', 'Play count'],
+  });
+  json.topartists.artist.forEach(artist => {
+    topArtistTable.push([
+      artist.name,
+      artist.playcount,
+    ]);
+  });
+  return topArtistTable.toString() + '\n';
 }

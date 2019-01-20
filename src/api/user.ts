@@ -1,6 +1,10 @@
 import * as http from 'http';
 
-import {RecentTracks, TopAlbums} from './types';
+import {
+  RecentTracks,
+  TopAlbums,
+  TopArtist,
+} from './types';
 
 const ROOT_URL = 'http://ws.audioscrobbler.com/2.0';
 
@@ -31,11 +35,11 @@ export function getRecentTracks(apiKey: string, user: string): Promise<RecentTra
 }
 
 export function getTopAlbums(apiKey: string, user: string): Promise<TopAlbums> {
-  return getRequest(apiKey, user, 'gettopalbums');
+  return getRequest<TopAlbums>(apiKey, user, 'gettopalbums');
 }
 
-export function getTopArtists(apiKey: string, user: string): Promise<object> {
-  return getRequest(apiKey, user, 'gettopartists');
+export function getTopArtists(apiKey: string, user: string): Promise<TopArtist> {
+  return getRequest<TopArtist>(apiKey, user, 'gettopartists');
 }
 
 export function getTopTracks(apiKey: string, user: string): Promise<object> {
