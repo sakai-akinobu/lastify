@@ -19,7 +19,10 @@ export function recentTracks(json: RecentTracks): string {
       track.date ? track.date['#text'] : '',
     ]);
   });
-  return recentTracksTable.toString() + '\n';
+  return [
+    '# Recent Tracks',
+    recentTracksTable.toString(),
+  ].join('\n') + '\n';
 }
 
 export function topAlbums(json: TopAlbums): string {
@@ -33,7 +36,10 @@ export function topAlbums(json: TopAlbums): string {
       album.playcount,
     ]);
   });
-  return topAlbumTable.toString() + '\n';
+  return [
+    '# Top Albums',
+    topAlbumTable.toString(),
+  ].join('\n') + '\n';
 }
 
 export function topArtists(json: TopArtists): string {
@@ -46,7 +52,10 @@ export function topArtists(json: TopArtists): string {
       artist.playcount,
     ]);
   });
-  return topArtistsTable.toString() + '\n';
+  return [
+    '# Top Artists',
+    topArtistsTable.toString(),
+  ].join('\n') + '\n';
 }
 
 export function topTracks(json: TopTracks): string {
@@ -60,5 +69,8 @@ export function topTracks(json: TopTracks): string {
       track.playcount,
     ]);
   });
-  return topTracksTable.toString() + '\n';
+  return [
+    '# Top Tracks',
+    topTracksTable.toString(),
+  ].join('\n') + '\n';
 }
