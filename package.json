@@ -42,7 +42,5 @@
     "tslint": "^5.12.1",
     "typescript": "^3.2.2"
   },
-  "dependencies": {
-    "minimist": "^1.2.0"
-  }
+  "dependencies": {}
 }
