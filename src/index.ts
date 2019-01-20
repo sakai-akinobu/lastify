@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as commander from 'commander';
+import Table = require('cli-table');
 
 import * as apiUser from './api/user';
 
@@ -33,4 +34,22 @@ Promise.all([
   apiUser.getTopAlbums(apiKey, user),
   apiUser.getTopArtists(apiKey, user),
   apiUser.getTopTracks(apiKey, user),
-]);
+])
+.then(([recentTracks]) => {
+  // recent tracks
+  const recentTracksTable = new Table({
+    head: ['Artist', 'Album', 'Track', 'Date'],
+  });
+  recentTracks.recenttracks.track.forEach(track => {
+    recentTracksTable.push([
+      track.artist['#text'],
+      track.album['#text'],
+      track.name,
+      track.date ? track.date['#text'] : '',
+    ]);
+  });
+
+  process.stdout.write(
+    recentTracksTable.toString(),
+  );
+});
