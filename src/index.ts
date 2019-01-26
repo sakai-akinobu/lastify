@@ -29,6 +29,15 @@ const {apiKey, user} = commander
   .option('-u, --user [user]', 'User name on Last.fm.')
   .parse(process.argv);
 
+if (!apiKey) {
+  process.stderr.write(`--api-key argument is required.\n`);
+  process.exit(1);
+}
+if (!user) {
+  process.stderr.write(`--user argument is required.\n`);
+  process.exit(1);
+}
+
 Promise.all([
   apiUser.getRecentTracks(apiKey, user),
   apiUser.getTopAlbums(apiKey, user),
@@ -49,7 +58,9 @@ Promise.all([
       tableFormatter.topTracks(topTracks),
     ].join('\n'),
   );
+  process.exit(0);
 })
 .catch(e => {
   process.stderr.write(`${e.message}\n`);
+  process.exit(1);
 });
