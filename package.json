@@ -1,5 +1,5 @@
 {
-  "name": "last-fm-listening-report-cli",
+  "name": "lastify",
   "version": "1.0.0",
   "description": "Generate Last.fm listening report for CLI.",
   "main": "lib/index.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sakai-akinobu/last-fm-listening-report-cli.git"
+    "url": "git+https://github.com/sakai-akinobu/lastify.git"
   },
   "keywords": [
     "lastfm",
@@ -22,9 +22,9 @@
   "author": "Akinobu SAKAI <sakai.akinobu@gmail.com> (https://github.com/sakai-akinobu)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sakai-akinobu/last-fm-listening-report-cli/issues"
+    "url": "https://github.com/sakai-akinobu/lastify/issues"
   },
-  "homepage": "https://github.com/sakai-akinobu/last-fm-listening-report-cli#readme",
+  "homepage": "https://github.com/sakai-akinobu/lastify#readme",
   "pre-commit": [
     "lint",
     "compile",
