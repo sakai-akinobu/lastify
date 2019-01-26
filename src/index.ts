@@ -35,7 +35,12 @@ Promise.all([
   apiUser.getTopArtists(apiKey, user),
   apiUser.getTopTracks(apiKey, user),
 ])
-.then(([recentTracks, topAlbums, topArtists, topTracks]) => {
+.then(([
+  recentTracks,
+  topAlbums,
+  topArtists,
+  topTracks,
+]) => {
   process.stdout.write(
     [
       tableFormatter.recentTracks(recentTracks),
@@ -44,4 +49,7 @@ Promise.all([
       tableFormatter.topTracks(topTracks),
     ].join('\n'),
   );
+})
+.catch(e => {
+  process.stderr.write(`${e.message}\n`);
 });
