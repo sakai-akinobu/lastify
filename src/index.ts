@@ -33,11 +33,11 @@ const program = commander
 let {apiKey, user} = program;
 const {period} = program;
 
-if (!apiKey && process.env.LASTFM_API_KEY) {
-  apiKey = process.env.LASTFM_API_KEY;
+if (!apiKey && process.env.LASTIFY_API_KEY) {
+  apiKey = process.env.LASTIFY_API_KEY;
 }
-if (!user && process.env.LASTFM_USER) {
-  user = process.env.LASTFM_USER;
+if (!user && process.env.LASTIFY_USER) {
+  user = process.env.LASTIFY_USER;
 }
 
 if (!apiKey) {
