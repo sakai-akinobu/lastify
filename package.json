@@ -2,7 +2,7 @@
   "name": "lastify",
   "version": "1.0.0",
   "description": "Generate Last.fm listening report for CLI.",
-  "main": "lib/index.js",
+  "main": "lib/src/index.js",
   "scripts": {
     "lint": "npx tslint src/**/*.ts test/**/*.ts",
     "lint:fix": "npx tslint --fix src/**/*.ts test/**/*.ts",
