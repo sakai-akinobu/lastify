@@ -8,6 +8,7 @@
     "lint:fix": "npx tslint --fix src/**/*.ts test/**/*.ts",
     "compile": "npx tsc --noEmit",
     "test": "npx mocha --require ts-node/register  --require espower-typescript/guess --recursive test/*-test.ts test/**/*-test.ts",
+    "prepare": "npm run build",
     "build": "npx tsc"
   },
   "repository": {
