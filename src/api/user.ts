@@ -1,4 +1,5 @@
 import * as http from 'http';
+import * as url from 'url';
 
 import {
   RecentTracks,
@@ -8,13 +9,23 @@ import {
   Period,
 } from './types';
 
-const ROOT_URL = 'http://ws.audioscrobbler.com/2.0';
-
 function getRequest<T>(apiKey: string, user: string, apiMethod: string, option: {period?: Period, limit?: number}): Promise<T> {
-  const url = `${ROOT_URL}/?method=user.${apiMethod}&user=${user}&api_key=${apiKey}&period=${option.period}&limit=${option.limit}&format=json`;
+  const formattedUrl = url.format({
+    protocol: 'http',
+    hostname: 'ws.audioscrobbler.com',
+    pathname: '/2.0',
+    query: {
+      api_key: apiKey,
+      method: `user.${apiMethod}`,
+      user,
+      period: option.period,
+      limit: option.limit,
+      format: 'json',
+    },
+  });
   return new Promise((resolve, reject) => {
     let body = '';
-    http.get(url, res => {
+    http.get(formattedUrl, res => {
       res.on('data', data => {
         body += data;
       });
