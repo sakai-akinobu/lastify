@@ -2,6 +2,7 @@ import * as tableFormatter from './table-formatter';
 import * as apiUser from './api/user';
 import {Period} from './api/types';
 import {parse} from './options';
+import {exitWithErrorMessage} from './error-handler';
 
 const {
   apiKey,
@@ -11,12 +12,10 @@ const {
 } = parse(process.env, process.argv);
 
 if (apiKey === undefined) {
-  process.stderr.write(`--api-key argument is required.\n`);
-  process.exit(1);
+  exitWithErrorMessage(process, `--api-key argument is required.`);
 }
 if (user === undefined) {
-  process.stderr.write(`--user argument is required.\n`);
-  process.exit(1);
+  exitWithErrorMessage(process, `--user argument is required.`);
 }
 if (period !== undefined) {
   if (![
@@ -27,14 +26,12 @@ if (period !== undefined) {
     Period.HalfYear,
     Period.Year,
   ].includes(period as Period)) {
-    process.stderr.write(`--period must either overall | 7day | 1month | 3month | 6month | 12month.\n`);
-    process.exit(1);
+    exitWithErrorMessage(process, `--period must either overall | 7day | 1month | 3month | 6month | 12month.`);
   }
 }
 if (limit !== undefined) {
   if (isNaN(Number(limit)) || Number(limit) !== parseInt(limit, 10)) {
-    process.stderr.write(`--limit must be integer.\n`);
-    process.exit(1);
+    exitWithErrorMessage(process, `--limit must be integer.`);
   }
 }
 
@@ -61,6 +58,5 @@ Promise.all([
   process.exit(0);
 })
 .catch(e => {
-  process.stderr.write(`${e.message}\n`);
-  process.exit(1);
+  exitWithErrorMessage(process, `${e.message}`);
 });
