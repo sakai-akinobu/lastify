@@ -56,10 +56,11 @@ export interface TopTracks {
   };
 }
 
-export type Period =
-  | 'overall'
-  | '7day'
-  | '1month'
-  | '3month'
-  | '6month'
-  | '12month';
+export enum Period {
+  Overall = 'overall',
+  Week = '7day',
+  Month = '1month',
+  Quarter = '3month',
+  HalfYear = '6month',
+  Year = '12month',
+}

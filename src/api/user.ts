@@ -61,7 +61,7 @@ export function getRecentTracks(
 export function getTopAlbums(
   apiKey: string,
   user: string,
-  period: Period = '1month',
+  period: Period = Period.Month,
   limit: number = DEFAULT_LIMIT,
 ): Promise<TopAlbums> {
   return getRequest<TopAlbums>(apiKey, user, 'gettopalbums', {period, limit});
@@ -70,7 +70,7 @@ export function getTopAlbums(
 export function getTopArtists(
   apiKey: string,
   user: string,
-  period: Period = '1month',
+  period: Period = Period.Month,
   limit: number = DEFAULT_LIMIT,
 ): Promise<TopArtists> {
   return getRequest<TopArtists>(apiKey, user, 'gettopartists', {period, limit});
@@ -79,7 +79,7 @@ export function getTopArtists(
 export function getTopTracks(
   apiKey: string,
   user: string,
-  period: Period = '1month',
+  period: Period = Period.Month,
   limit: number = DEFAULT_LIMIT,
 ): Promise<TopTracks> {
   return getRequest<TopTracks>(apiKey, user, 'gettoptracks', {period, limit});

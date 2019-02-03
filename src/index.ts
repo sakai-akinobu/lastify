@@ -20,14 +20,14 @@ if (user === undefined) {
 }
 if (period !== undefined) {
   if (![
-    'overall',
-    '7day',
-    '1month',
-    '3month',
-    '6month',
-    '12month',
-  ].includes(period)) {
-    process.stderr.write(`--period must be overall | 7day | 1month | 3month | 6month | 12month.\n`);
+    Period.Overall,
+    Period.Week,
+    Period.Month,
+    Period.Quarter,
+    Period.HalfYear,
+    Period.Year,
+  ].includes(period as Period)) {
+    process.stderr.write(`--period must either overall | 7day | 1month | 3month | 6month | 12month.\n`);
     process.exit(1);
   }
 }
