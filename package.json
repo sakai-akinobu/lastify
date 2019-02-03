@@ -44,6 +44,7 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "cli-table": "^0.3.1",
     "commander": "^2.19.0"
   }
