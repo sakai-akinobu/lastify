@@ -38,7 +38,7 @@ if (limit !== undefined) {
   }
 }
 
-main(apiKey, user, period, limit)
+main(apiKey, user, period, Number(limit))
 .then(([
   recentTracks,
   topAlbums,

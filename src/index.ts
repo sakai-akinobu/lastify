@@ -1,7 +1,12 @@
 import * as apiUser from './api/user';
 import {Period} from './api/types';
 
-export async function main(apiKey: string, user: string, period: string, limit: number): Promise<any> {
+export async function main(
+  apiKey: string,
+  user: string,
+  period: string | undefined,
+  limit: number | undefined
+): Promise<any> {
   return Promise.all([
     apiUser.getRecentTracks(apiKey, user, limit),
     apiUser.getTopAlbums(apiKey, user, period as Period, limit),
