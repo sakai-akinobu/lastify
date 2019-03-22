@@ -33,12 +33,12 @@ if (period !== undefined) {
   }
 }
 if (limit !== undefined) {
-  if (isNaN(Number(limit)) || Number(limit) !== parseInt(limit, 10)) {
+  if (Number.isNaN(Number(limit)) || Number(limit) !== parseInt(limit, 10)) {
     exitWithErrorMessage(process, `--limit must be integer.`);
   }
 }
 
-main(apiKey, user, period, Number(limit))
+main(apiKey, user, period, limit)
 .then(([
   recentTracks,
   topAlbums,
