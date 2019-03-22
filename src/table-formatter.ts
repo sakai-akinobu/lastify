@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import Table = require('cli-table');
 
 import {
@@ -9,6 +10,7 @@ import {
 
 export function recentTracks(json: RecentTracks): string {
   const recentTracksTable = new Table({
+    style: {head: ['green']},
     head: ['Artist', 'Album', 'Track', 'Date'],
   });
   json.recenttracks.track.forEach(track => {
@@ -20,13 +22,14 @@ export function recentTracks(json: RecentTracks): string {
     ]);
   });
   return [
-    '# Recent Tracks',
+    chalk.green('# Recent Tracks'),
     recentTracksTable.toString(),
   ].join('\n') + '\n';
 }
 
 export function topAlbums(json: TopAlbums): string {
   const topAlbumTable = new Table({
+    style: {head: ['green']},
     head: ['Album', 'Artist', 'Play count'],
   });
   json.topalbums.album.forEach(album => {
@@ -37,13 +40,14 @@ export function topAlbums(json: TopAlbums): string {
     ]);
   });
   return [
-    '# Top Albums',
+    chalk.green('# Top Albums'),
     topAlbumTable.toString(),
   ].join('\n') + '\n';
 }
 
 export function topArtists(json: TopArtists): string {
   const topArtistsTable = new Table({
+    style: {head: ['green']},
     head: ['Artist', 'Play count'],
   });
   json.topartists.artist.forEach(artist => {
@@ -53,13 +57,14 @@ export function topArtists(json: TopArtists): string {
     ]);
   });
   return [
-    '# Top Artists',
+    chalk.green('# Top Artists'),
     topArtistsTable.toString(),
   ].join('\n') + '\n';
 }
 
 export function topTracks(json: TopTracks): string {
   const topTracksTable = new Table({
+    style: {head: ['green']},
     head: ['Artist', 'Track', 'Play count'],
   });
   json.toptracks.track.forEach(track => {
@@ -70,7 +75,7 @@ export function topTracks(json: TopTracks): string {
     ]);
   });
   return [
-    '# Top Tracks',
+    chalk.green('# Top Tracks'),
     topTracksTable.toString(),
   ].join('\n') + '\n';
 }
