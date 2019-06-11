@@ -1,6 +1,6 @@
 {
   "name": "lastify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate Last.fm listening report for CLI.",
   "main": "lib/src/index.js",
   "bin": "bin/cli.js",
